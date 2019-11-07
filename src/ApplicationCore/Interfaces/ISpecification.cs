@@ -30,5 +30,9 @@ namespace ApplicationCore.Interfaces
         /// 分组
         /// </summary>
         Expression<Func<T, object>> GroupBy { get; }
+
+        int Take { get; }
+        int Skip { get; }
+        bool IsPagingEnabled { get; }
     }
 }

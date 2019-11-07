@@ -15,6 +15,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Http;
 using Infrastructure.Identity;
 using ApplicationCore.Interfaces;
+using Infrastructure.Data;
 
 namespace Web
 {
@@ -83,7 +84,9 @@ namespace Web
             //创建Identity(身份)如果没有创建过
             CreateIdentityIfNotCreated(services);
 
-            //services.AddScoped(typeof(IAsyncRepository<>), typeof());
+            //注入仓储实现 
+            services.AddScoped(typeof(IAsyncRepository<>), typeof(EfRepository<>));
+
 
         }
 
